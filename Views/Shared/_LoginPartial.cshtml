@@ -2,7 +2,6 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
@@ -16,11 +15,21 @@
 }
 else
 {
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
+    <ul id="modile-dropdown-menu" class="dropdown-content">
+        <li><a href="#!">Login</a></li>
+        <li><a href="#!">Register</a></li>
+        <li class="divider"></li>
+    </ul>
+    <a href="#" data-target="modile-dropdown-menu" class="right dropdown-trigger pink-text text-darken-4 sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+        <li>
+            <a href="#" class="pink-text text-darken-4">Login</a>
+        </li>
+    </ul>
+    <ul class="right hide-on-med-and-down">
+        <li>
+            <a href="#" class="pink-text text-darken-4">Register</a>
+        </li>
+    </ul>
+
 }
-</ul>
